@@ -1,0 +1,74 @@
+
+{% extends 'main.html' %}
+{% block content %}
+<script>
+    document.getElementById('uploadForm').addEventListener('submit', function(e) {
+      e.preventDefault(); // Prevent form submission
+      
+      var fileInput = document.getElementById('jsonFileInput');
+      var file = fileInput.files[0];
+      
+      if (file) {
+        var reader = new FileReader();
+        reader.onload = function(e) {
+          var jsonData = e.target.result;
+          
+          // Send jsonData to the backend using fetch or AJAX
+          // Example using fetch:
+          fetch('/api/submit', {
+            method: 'POST',
+            body: jsonData
+          })
+          .then(response => response.json())
+          .then(data => {
+            // Handle response from the backend
+            console.log(data);
+          })
+          .catch(error => {
+            // Handle any errors that occurred during the request
+            console.error(error);
+          });
+        };
+        reader.readAsText(file);
+      }
+    });
+  </script>
+{% if message %}
+        <div class="alert alert-danger">{{ message }}</div>
+    {% endif %}
+<div class="row"  style="margin-bottom: 300px;">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        <center><h1>Heart Disease Predictor</h1></center>
+        <div class="card card-body">
+            <center><h3>Please upload the json file</h3></center>
+            <form action="/heart-predict" method="post" enctype="multipart/form-data" style = "justify-content: center;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            margin: 12px;">
+                <input id='file-upload' type="file" name="json_file" accept=".json" required >
+                <!-- <label for="file-upload" class="custom-file-upload" style="    
+                color: white;
+                background: black;
+                padding: 9px;
+                border-radius: 16px; 
+                font-weight: bold;
+                font-family: system-ui;">
+                  Custom Upload
+              </label> -->
+              <br/>
+                <input type="submit" value="Predict" style="    
+                color: white;
+                background: #010c80;
+                padding: 9px;
+                border-radius: 16px;
+                font-weight: bold;
+                font-family: system-ui;
+                text-align: center;">
+            </form>
+        </div>
+    </div>
+    <div class="col-md-3"></div>
+</div>
+{% endblock %}

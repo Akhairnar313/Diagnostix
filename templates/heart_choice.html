@@ -1,0 +1,30 @@
+
+{% extends 'main.html' %}
+{% block content %}
+{% if message %}
+        <div class="alert alert-danger">{{ message }}</div>
+    {% endif %}
+    <h1 style="text-align: center;">Heart Disease Predictor</h1>
+    <h1 style="text-align: center;font-size: 25px; padding: 20px 0px;">Choose the type of Input</h1>
+    
+    <div style="display: flex; justify-content: center;">
+        <form action="/heart-manual" method="POST" style="margin-right: 10px;">
+            <input type="submit" value="Manually add details" style="    
+            color: white;
+            background: #010c80;
+            padding: 9px;
+            border-radius: 16px;
+            font-weight: bold;
+            font-family: system-ui;">
+        </form>
+        <form action="/heart-json" method="POST" >
+            <input type="submit" value="Add JSON file" style="    
+            color: white;
+            background: #010c80;
+            padding: 9px;
+            border-radius: 16px;
+            font-weight: bold;
+            font-family: system-ui;">
+        </form>
+    </div>
+{% endblock %}

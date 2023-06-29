@@ -1,0 +1,103 @@
+
+{% extends 'main.html' %}
+{% block content %}
+    <div class="report-card">
+        <h1>Medical Report</h1>
+        <div class="patient-info">
+            <span class="attribute">Anaemia:</span>
+            {% if report[0] == 1 %}
+            <span class="high-chances">High chances</span>
+            {% else %}
+            <span class="low-chances">Low chances</span>
+            {% endif %}
+        </div>
+        <div class="patient-info">
+            <span class="attribute">Luecopenia:</span>
+            {% if report[1] == 1 %}
+            <span class="high-chances">Possible Immunodeficiency</span>
+            {% else %}
+            <span class="low-chances">Low chances</span>
+            {% endif %}
+        </div>
+        <div class="patient-info">
+            <span class="attribute">Leucocytosis:</span>
+            {% if report[2] == 1 %}
+            <span class="high-chances">Possible Infection</span>
+            {% else %}
+            <span class="low-chances">Low chances</span>
+            {% endif %}
+        </div>
+        <div class="patient-info">
+            <span class="attribute">Thrombocytopenia:</span>
+            {% if report[3] == 1 %}
+            <span class="high-chances">Possible Bleeding Disorder</span>
+            {% else %}
+            <span class="low-chances">Low chances</span>
+            {% endif %}
+        </div>
+        <div class="patient-info">
+            <span class="attribute">Thrombocytosis:</span>
+            {% if report[4] == 1 %}
+            <span class="high-chances">High chances</span>
+            {% else %}
+            <span class="low-chances">Low chances</span>
+            {% endif %}
+        </div>
+        <div class="patient-info">
+            <span class="attribute">Neutrocytosis:</span>
+            {% if report[5] == 1 %}
+            <span class="high-chances">Possible Bacterial Infection</span>
+            {% else %}
+            <span class="low-chances">Low chances</span>
+            {% endif %}
+        </div>
+        <div class="patient-info">
+            <span class="attribute">Lymphocytosis:</span>
+            {% if report[6] == 1 %}
+            <span class="high-chances">Possible Viral Infection</span>
+            {% else %}
+            <span class="low-chances">Low chances</span>
+            {% endif %}
+        </div>
+        <div class="patient-info">
+            <span class="attribute">Eosinophilia:</span>
+            {% if report[7] == 1 %}
+            <span class="high-chances">Possible Allergic Reaction</span>
+            {% else %}
+            <span class="low-chances">Low chances</span>
+            {% endif %}
+        </div>
+        <div class="patient-info">
+            <span class="attribute">Diabetes:</span>
+            {% if report[8] == 1 %}
+            <span class="high-chances">High chances</span>
+            {% else %}
+            <span class="low-chances">Low chances</span>
+            {% endif %}
+        </div>
+        <div class="patient-info">
+            <span class="attribute">Liver:</span>
+            {% if report[9] == 1 %}
+            <span class="not-healthy">Not Healthy</span>
+            {% else %}
+            <span class="healthy">Healthy</span>
+            {% endif %}
+        </div>
+        <div class="patient-info">
+            <span class="attribute">Heart:</span>
+            {% if report[10] == 1 %}
+            <span class="not-healthy">Not Healthy</span>
+            {% else %}
+            <span class="healthy">Healthy</span>
+            {% endif %}
+        </div>
+        <div class="patient-info">
+            <span class="attribute">Kidney:</span>
+            {% if report[11] == 1 %}
+            <span class="not-healthy">Not Healthy</span>
+            {% else %}
+            <span class="healthy">Healthy</span>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
